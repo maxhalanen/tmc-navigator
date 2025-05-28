@@ -15,7 +15,7 @@ void compassInit() {
   if (!mmc.begin(MMC56X3_DEFAULT_ADDRESS, &Wire)) {  // I2C mode
     /* There was a problem detecting the MMC5603 ... check your connections */
     Serial.println("Ooops, no MMC5603 detected ... Check your wiring!");
-    while (1) delay(10);
+    //while (1) delay(10);
   }
 
   /* Display some basic information on this sensor */

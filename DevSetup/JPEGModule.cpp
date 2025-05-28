@@ -1,22 +1,14 @@
 #include "JPEGModule.h"
 #include <JPEGDecoder.h>
 #include <SD.h>
-#include <math.h>
+#include "TileConversion.h"
+#include "defs.h"
 
 TFT_eSPI tft = TFT_eSPI();
 
-double lon2tile(double lon, int zoom) {
-    return (lon + 180.0) / 360.0 * (1 << zoom);
-}
-
-double lat2tile(double lat, int zoom) {
-    double lat_rad = lat * M_PI / 180.0;
-    return (1.0 - log(tan(lat_rad) + 1.0 / cos(lat_rad)) / M_PI) / 2.0 * (1 << zoom);
-}
-
 void jpegInit() {
   tft.begin();
-  if (!SD.begin(5, tft.getSPIinstance())) {
+  if (!SD.begin(SD_CS_PIN, tft.getSPIinstance())) {
     Serial.println("SD init failed");
   }
 }
@@ -25,10 +17,11 @@ void drawTileFromLocation(double lat, double lng, int zoom) {
   int lngTile = floor(lon2tile(lng, zoom));
   int latTile = floor(lat2tile(lat, zoom));
   char tiles[50];
+
   sprintf(tiles, "/%d/%d/%d.jpg", zoom, lngTile, latTile);
 
-  int x = (tft.width() - 256) / 2 - 1;
-  int y = (tft.height() - 256) / 2 - 1;
+  int x = (tft.width() - TILE_SIZE) / 2 - 1;
+  int y = (tft.height() - TILE_SIZE) / 2 - 1;
 
   drawSdJpeg(tiles, x, y);
 }
