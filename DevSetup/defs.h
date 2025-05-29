@@ -7,5 +7,8 @@
 #define GPS_TX 17
 #define COMPASS_SDA 21
 #define COMPASS_SCL 22
+#define BME_SDA 25  
+#define BME_SCL 26  
+#define BME680_I2C_ADDRESS_GND 0x76
 
 #endif
