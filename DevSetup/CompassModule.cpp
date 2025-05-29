@@ -10,7 +10,7 @@ void compassInit() {
   Serial.println("Adafruit_MMC5603 Magnetometer Test");
   Serial.println("");
 
-  Wire.begin(COMPASS_SDA, COMPASS_SCL);
+  Wire.begin(SDA_PIN, SCL_PIN);
   /* Initialise the sensor */
   if (!mmc.begin(MMC56X3_DEFAULT_ADDRESS, &Wire)) {  // I2C mode
     /* There was a problem detecting the MMC5603 ... check your connections */

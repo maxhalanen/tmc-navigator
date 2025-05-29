@@ -10,7 +10,7 @@ bool baselineSet = false;
 
 void bmeInit() {
   
-  Wire.begin(BME_SDA, BME_SCL);
+  Wire.begin(SDA_PIN, SCL_PIN);
   
   if (!bme.begin(BME680_I2C_ADDRESS_GND)) {
     Serial.println("Could not find a valid BME680 sensor, check wiring!");
