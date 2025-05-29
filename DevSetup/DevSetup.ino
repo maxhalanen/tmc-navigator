@@ -12,9 +12,9 @@ void setup() {
 }
 
 void loop() {
-  updateGPS();
-  updateCompass();
-  updateBME();
+  gpsUpdate();
+  compassUpdate();
+  bmeUpdate();
 
   if (gps.location.isValid()) {
     double lat = gps.location.lat();

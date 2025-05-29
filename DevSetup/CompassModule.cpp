@@ -22,7 +22,7 @@ void compassInit() {
   mmc.printSensorDetails();
 }
 
-void updateCompass() {
+void compassUpdate() {
   // Get a new sensor event 
   sensors_event_t event;
   mmc.getEvent(&event);

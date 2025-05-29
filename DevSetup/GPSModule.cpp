@@ -8,7 +8,7 @@ void gpsInit() {
   gpsSerial.begin(9600, SERIAL_8N1, GPS_RX, GPS_TX);
 }
 
-void updateGPS() {
+void gpsUpdate() {
   while (gpsSerial.available()) {
     gps.encode(gpsSerial.read());
   }

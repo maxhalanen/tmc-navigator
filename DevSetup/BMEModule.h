@@ -1,7 +1,7 @@
 #ifndef BME_MODULE_H
 #define BME_MODULE_H
 
-void updateBME();
+void bmeUpdate();
 void bmeInit();
 
 #endif
