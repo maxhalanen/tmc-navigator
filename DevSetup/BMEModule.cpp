@@ -29,7 +29,7 @@ void bmeInit() {
   delay(10000); // 10,000ms = 10s
 } 
 
-void updateBME() {
+void bmeUpdate() {
   if (!bme.performReading()) {
     Serial.println("Failed to perform reading :(");
     return;

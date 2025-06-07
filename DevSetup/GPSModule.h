@@ -7,6 +7,8 @@
 extern TinyGPSPlus gps;
 
 void gpsInit();
-void updateGPS();
+void gpsUpdate();
+double gpsLatitude();
+double gpsLongitude();
 
 #endif

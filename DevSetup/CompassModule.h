@@ -2,6 +2,6 @@
 #define COMPASS_MODULE_H
 
 void compassInit();
-void updateCompass();
+void compassUpdate();
 
 #endif
