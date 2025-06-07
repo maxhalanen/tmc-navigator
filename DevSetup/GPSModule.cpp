@@ -8,6 +8,20 @@ void gpsInit() {
   gpsSerial.begin(9600, SERIAL_8N1, GPS_RX, GPS_TX);
 }
 
+double gpsLongitude() {
+  if (gps.location.isValid()) {
+    return gps.location.lng();
+  } 
+  return 0;
+}
+
+double gpsLatitude() {
+  if (gps.location.isValid()) {
+    return gps.location.lat();     
+  } 
+  return 0;
+}
+
 void gpsUpdate() {
   while (gpsSerial.available()) {
     gps.encode(gpsSerial.read());
